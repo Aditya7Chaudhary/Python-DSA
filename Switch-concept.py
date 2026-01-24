@@ -17,3 +17,11 @@ match num:
         print("Saturday")
     case 7:
         print("Sunday")
+
+"""
+
+Limited to Integer or Character Types
+Switch statements are exclusively designed to handle integer or character values. 
+Ensure that the expression provides values of type int or char
+
+"""
