@@ -3,7 +3,10 @@ class Solution:
 
     def findLength(self, s):
 
-        return len(s)
+        # printing last 3 letters
+        st = s[-6:]
+        
+        return len(s), st
 
 # Driver code
 if __name__ == "__main__":
