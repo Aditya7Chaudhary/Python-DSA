@@ -10,6 +10,6 @@ print(count)
 
 # Optimal
 
-from math import log10, ceil
+from math import log10
 
-print(ceil(log10(num)))
+print(int(log10(num))+1)
