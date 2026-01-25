@@ -1,10 +1,3 @@
-# Cheeky way
-
-number = str(input("Enter a number: "))
-print(len(number))
-
-# Actual way
-
 num = int(input("Enter a number: "))
 a = num
 count = 0
