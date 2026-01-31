@@ -1,5 +1,6 @@
-def highest_lowest_freq(l):
+def highest_lowest_freq(l,k):
     d = {}
+    l.sort()
     for i in l:
         if i in d.keys():
             d[i] += 1
@@ -8,5 +9,6 @@ def highest_lowest_freq(l):
     
     return max(d), min(d)
 
-l = [10,5,10,3,5,10]
-print(highest_lowest_freq(l))
+l = [1,2,4]
+k = 5
+print(highest_lowest_freq(l,k))
