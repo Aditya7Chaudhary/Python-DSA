@@ -3,9 +3,11 @@ def insertion_sort(l):
         for j in range(i,0,-1):
             if l[j] < l[j-1]:
                 l[j], l[j-1] = l[j-1], l[j]
+            else:
+                break
     return l
 
 # Time complexity is O(n^2)
 
-l = [13,13,46,24,52,20,9]
+l = [13,13,46,24,19,52,20,9]
 print(insertion_sort(l))
