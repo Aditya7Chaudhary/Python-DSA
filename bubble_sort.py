@@ -5,5 +5,7 @@ def bubble_sort(l):
                 l[j],l[j-1] = l[j-1],l[j] 
     return l
 
+    # Time complexity is O(n^2)
+
 l = [13,13,24,46,52,20,9]
 print(bubble_sort(l))
