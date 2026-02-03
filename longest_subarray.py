@@ -2,17 +2,20 @@ def longest_subarray(l,k):
     sum = 0
     f = 0
     ans = 0
-    for i in range(len(l)):
-        sum += l[i]
+    i = 0
+    while i < len(l):
         if sum > k:
             sum -= l[f]
             f += 1
-        elif sum == k:
-            ans = i-f+1
+        elif sum == k and ans < i-f:
+            ans = i-f
+        else:
+            sum += l[i]
+            i += 1
     
     return ans
 
-l = [-3, 2, 1]
-k = 6
+l = [10, 5, 2, 7, 1, 9]
+k = 15
 
 print(longest_subarray(l,k))
