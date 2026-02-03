@@ -7,11 +7,12 @@ def longest_subarray(l,k):
         if sum > k:
             sum -= l[f]
             f += 1
-        elif sum == k and ans < i-f:
-            ans = i-f
         else:
+            if i == len(l): break
             sum += l[i]
             i += 1
+        if sum == k and ans < i-f:
+            ans = i-f
     
     return ans
 
