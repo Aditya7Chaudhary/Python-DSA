@@ -10,7 +10,7 @@ def maximum_sum(l):
         if sum > max_sum:
             max_sum = sum
 
-        return max_sum
+    return max_sum
 
 l = [100,-200,100]  
 print(maximum_sum(l))
