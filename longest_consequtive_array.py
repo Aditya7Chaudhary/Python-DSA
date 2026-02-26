@@ -21,7 +21,7 @@ def longest_consequtive_array_opt(l):
     ans = 1
     min_num_l = []
     
-    for i in range(len(l)):
+    for i in range(len(st)):
         if l[i]-1 not in st:
             min_num_l.append(i)
     
