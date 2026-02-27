@@ -2,7 +2,7 @@ def count_subarray(l,k):
     s,e = 0,1
     n = len(l)
     ans = 0
-    while e < n:
+    while e <= n:
         list_sum = sum(l[s:e])
         print(l[s:e])
         if list_sum == k:
