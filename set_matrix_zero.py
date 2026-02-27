@@ -1,19 +1,25 @@
 def set_matrix_zero(matrix):
-    c,r = set(),set()
     n = len(matrix[0])
+    f = 0
+    if 0 in matrix[0]:
+        f = 1
 
-    for j in range(len(matrix)):
+    for j in range(1,len(matrix)):
+        r = 0
         for i in range(n):
             if matrix[j][i] == 0:
-                r.add(i)
-                c.add(j)
+                matrix[0][i] = 0
+                r = 1
+        if r == 1:
+            matrix[j] = [0]*n
+        
+    for i in range(n):
+        if matrix[0][i] == 0:
+            for j in range(1,len(matrix)):
+                matrix[j][i] = 0
     
-    for j in c:
-        matrix[j] = [0]*n
-    
-    for j in range(len(matrix)):
-        for i in r:
-            matrix[j][i] = 0
+    if f == 1:
+        matrix[0] = [0]*n
     
     return matrix
 
