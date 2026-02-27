@@ -5,12 +5,13 @@ def set_matrix_zero(matrix):
         f = 1
 
     for j in range(1,len(matrix)):
-        r = 0
+        row_has_zero = False
         for i in range(n):
             if matrix[j][i] == 0:
                 matrix[0][i] = 0
-                r = 1
-        if r == 1:
+                row_has_zero = True
+                
+        if row_has_zero:
             matrix[j] = [0]*n
         
     for i in range(n):
