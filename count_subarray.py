@@ -10,10 +10,10 @@ def count_subarray(l,k):
 
         remove_target = list_sum - k
         if remove_target in prefix_sum:
-            ans += 1
+            ans += prefix_sum(remove_target)
 
         prefix_sum[list_sum] = prefix_sum.get(list_sum,0) + 1
-        
+
     return ans
 
 l = [3,1,-2,4]
