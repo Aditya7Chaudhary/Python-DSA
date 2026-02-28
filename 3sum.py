@@ -1,38 +1,32 @@
 def three_sum(l):
-    s = 0
-    m = 1
-    e = len(l)-1
+    n = len(l)
     l.sort()
     ans = []
+    
+    for i in range(n):
+        if i > 0 and l[i] == l[i-1]:
+            continue
 
-    while e > m and m > s:
-        sum_num = l[s]+l[m]+l[e]
-        if sum_num < 0:
-            if m < e-1:
-                sum_num -= l[m]
-                m += 1
-                sum_num += l[m]
+        k = -l[i]
+        left = i+1
+        right = n-1
+
+        while left < right:
+            sum_num = l[left] + l[right]
+            if sum_num > k:
+                right -= 1
+            elif sum_num < k:
+                left += 1
             else:
-                sum_num -= l[s]
-                s += 1
-                sum_num += l[s]
-            
-        elif sum_num > 0:
-            if m > s+1:
-                sum_num -= l[m]
-                m -= 1
-                sum_num += l[m]
-            else:
-                sum_num -= l[e]
-                e -= 1
-                sum_num += l[e]
+                ans.append([-k,l[left],l[right]])
+                left += 1
+                right -= 1
 
-        else:
-            ans.append([l[s],l[m],l[e]])
-            sum_num -= l[e]
-            e -= 1
-            sum_num += l[e]
-
+                while left < right and l[left] == l[left-1]:
+                    left += 1
+                while left < right and l[right] == l[right+1]:
+                    right -= 1
+        
     return ans
 
 
