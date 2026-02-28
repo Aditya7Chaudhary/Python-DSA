@@ -1,23 +1,21 @@
 def count_subarray(l,k):
-    s,e = 0,0
+    s = 0
     n = len(l)
     ans = 0
-    list_sum = l[s]
-    while e < n:
-        
-        if list_sum > k:
-            list_sum -= l[s]
-            s += 1
-            continue
-        elif list_sum == k:
+    prefix_sum = {0:1}
+    list_sum = 0
+
+    for e in range(n):
+        list_sum += l[e]
+
+        remove_target = list_sum - k
+        if remove_target in prefix_sum:
             ans += 1
 
-        e += 1
-        if e < n:
-            list_sum += l[e]
+        prefix_sum[list_sum] = prefix_sum.get(list_sum,0) + 1
         
     return ans
 
-l = [3,1,2,4]
-k = 6
+l = [3,1,-2,4]
+k = 2
 print(count_subarray(l,k))
