@@ -44,6 +44,8 @@ def majority_elements(l):
         return [num1]
     elif count2 > n//3:
         return [num2]
-    
+    else:
+        return []
+
 l = [1,2,1,1,3,2,2]
 print(majority_elements(l))
