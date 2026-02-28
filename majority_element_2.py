@@ -13,21 +13,19 @@ def majority_elements(l):
             num2 = i
             count2 += 1
         else:
-            if i in (num1,num2):
-                if i == num1:
-                    count1 += 1
-                else:
-                    count2 += 1
+            if i == num1:
+                count1 += 1
+            elif i == num2:
+                count2 += 1
+            elif count1 == 0:
+                num1 = i
+                count1 = 1
+            elif count2 == 0:
+                num2 = i
+                count2 = 1
             else:
                 count1 -= 1
                 count2 -= 1
-
-        if count1 == 0 and num1 != None:
-            num1 = i
-            count1 += 1
-        elif count2 == 0 and num2 != None:
-            num2 = i
-            count2 += 1
 
         print(num1,num2)
 
@@ -47,5 +45,5 @@ def majority_elements(l):
     else:
         return []
 
-l = [1,2,1,1,3,2,2]
+l = [1,1,1,2,3,7,8,1,6,9]
 print(majority_elements(l))
