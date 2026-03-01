@@ -9,7 +9,7 @@ def reverse_pairs(l):
                 ans += (m+1 - left)
                 right += 1
             else:
-                left += 2
+                left += 1
         
         left = s
         right = m+1
@@ -18,10 +18,6 @@ def reverse_pairs(l):
             if l[left] < l[right]:
                 temp.append(l[left])
                 left += 1
-            elif l[left] == l[right]:
-                temp.extend([l[left],l[right]])
-                left += 1
-                right += 1
             else:
                 temp.append(l[right])
                 right += 1
@@ -52,5 +48,5 @@ def reverse_pairs(l):
 
     return ans
 
-l = [1,3,2,3,1]
+l = [2,4,3,5,1]
 print(reverse_pairs(l))
