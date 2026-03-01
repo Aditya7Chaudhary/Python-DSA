@@ -5,14 +5,13 @@ def merge_two_sorted_arrays(n1,n2):
     i = len(n1)-1
     j = n-1
     while i >= 0 and j >= 0:
-        if n1[m] <= n2[j]:
-            n1[i] = n2[j]
-            i -= 1
-            j -= 1
-        else:
-            n1[i],n1[m] = n1[m],n1[i]
-            i -= 1
+        if m >= 0 and n1[m] > n2[j]:
+            n1[i] = n1[m]
             m -= 1
+        else:
+            n1[i] = n2[j]
+            j -= 1
+        i -= 1
 
     return n1
 
