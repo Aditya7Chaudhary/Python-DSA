@@ -1,4 +1,5 @@
 def merge_overlapping_subinterval(nums):
+    nums.sort()
     ans = [nums[0]]
     n = len(nums)
 
@@ -6,7 +7,7 @@ def merge_overlapping_subinterval(nums):
         curr_array = nums[i]
         last_array = ans[-1]
 
-        if last_array[1] > curr_array[0]:
+        if last_array[1] >= curr_array[0]:
             last_array[1] = max(last_array[1],curr_array[1])
         else:
             ans.append(curr_array)
