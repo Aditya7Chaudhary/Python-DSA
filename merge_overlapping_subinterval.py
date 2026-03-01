@@ -1,20 +1,17 @@
 def merge_overlapping_subinterval(nums):
-    l1 = nums[0]
-    ans = []
+    ans = [nums[0]]
     n = len(nums)
 
     for i in range(1,n):
-        l2 = nums[i]
-        if l1[1] > l2[0] and l1[1] < l2[1]:
-            l1 = [l1[0],l2[1]]
-            ans.append(l1)
-        elif l1[1] < l2[0]:
-            l1 = l2
+        curr_array = nums[i]
+        last_array = ans[-1]
 
-        if l1 not in ans:
-            ans.append(l1)
+        if last_array[1] > curr_array[0]:
+            last_array[1] = max(last_array[1],curr_array[1])
+        else:
+            ans.append(curr_array)
 
     return ans
 
-nums = [[0,3],[2,6],[8,10],[15,18]]
+nums = [[1, 3], [2, 4], [3, 5]]
 print(merge_overlapping_subinterval(nums))
