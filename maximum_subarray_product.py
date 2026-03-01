@@ -15,18 +15,21 @@ def maximum_subarray_product(l):
     max_product = 0
     for i in range(len(l_neg)):
         product = 1
-        for j in range(l_0[i]):
+
+        if i > 0:
+            s = l_0[i-1]
+        else:
+            s = 0
+        e = l_0[i]-1
+
+        for j in range(s,e+1):
+                if i > 0 and j==s:
+                    continue
                 product *= l[j]
         if l_neg[i]%2 == 0:
             max_product = max(max_product,product)
         else:
-            if i > 0:
-                s = l_0[i-1]
-            else:
-                s = 0
-            e = l_0[i]
-
-            while s < e:
+            while s <= e:
                 if l[s] < 0 and l[e] < 0:
                     if l[e] < l[s]:
                         product /= l[s]
@@ -52,5 +55,5 @@ def maximum_subarray_product(l):
     
     return max_product
 
-nums = [-1]
+nums = [1,2,-3,0,-4,-5]
 print(maximum_subarray_product(nums))
