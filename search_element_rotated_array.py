@@ -8,6 +8,11 @@ def search_element_rotated_array(l,k):
         if l[m] == k:
             return m
         
+        if l[s] == l[m] == l[e]:
+            s += 1
+            e -= 1
+            continue
+        
         if l[m] < l[s]:
             if l[m] < k and k <= l[e]:
                 s = m+1
