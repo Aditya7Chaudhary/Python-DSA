@@ -7,13 +7,14 @@ def search_element_rotated_array(l,k):
 
         if l[m] == k:
             return m
-        elif l[m] > k:
-            if l[s] > k:
+        
+        if l[m] <= l[s]:
+            if l[m] < k and k < l[e]:
                 s = m+1
             else:
                 e = m-1
         else:
-            if l[s] < k:
+            if l[m] > k and k > l[s]:
                 e = m-1
             else:
                 s = m+1
@@ -21,5 +22,5 @@ def search_element_rotated_array(l,k):
     return -1
 
 nums = [4, 5, 6, 7, 0, 1, 2]
-k = 1
+k = 2
 print(search_element_rotated_array(nums,k))
