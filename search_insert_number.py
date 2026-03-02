@@ -12,7 +12,8 @@ def search_insert_number(l,k):
         else:
             e = m-1
     
-    l = l[:m] + [k] + l[m:]
+    l = l[:s] + [k] + l[s:]
+
     return l
 
 nums = [1,2,4,7]
