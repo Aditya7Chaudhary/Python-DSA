@@ -3,15 +3,15 @@ def sorted_num_x(l,k):
     e = len(l)-1
     m = s + (e-s)//2
 
-    while s < e:
+    while s <= e:
+        m = s + (e-s)//2
+
         if l[m] == k:
             return m
         elif l[m] < k:
-            s = m
-            m = s + (e-s)//2
+            s = m+1
         else:
-            e = m
-            m = s + (e-s)//2
+            e = m-1
     
     return -1
 
