@@ -6,7 +6,7 @@ def min_rotated_sorted_array(l):
     while s <= e:
         m = s + (e-s)//2
         
-        if l[m] > l[s]:
+        if l[m] >= l[s]:
             if min_num > l[s]:
                 min_num = l[s]
             s = m+1
@@ -17,6 +17,6 @@ def min_rotated_sorted_array(l):
 
     return min_num
 
-nums = [3,4,5,1,2]
+nums = [5,1,2,3,4]
 print(min_rotated_sorted_array(nums))
         
