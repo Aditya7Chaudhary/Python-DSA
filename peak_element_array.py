@@ -7,17 +7,12 @@ def peak_element_array(l):
     while s <= e:
         m = s + (e-s)//2
 
-        if l[m+1] < l[m] and l[m] > l[m-1]:
-            return m
-        elif l[s] >= l[m-1]:
+        if l[m] > l[m+1]:
             e = m-1
-        elif l[m+1] >= l[e]:
-            s = m+1
         else:
-            s += 1
-            e -= 1
+            s = m+1
+    
+    return s
 
-    return len(l)-1
-
-nums = [1,2,1,3,5,6,4]
+nums = [3,4,3,2,1]
 print(peak_element_array(nums))
