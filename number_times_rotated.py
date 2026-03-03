@@ -1,8 +1,10 @@
+# Assuming the array does not have duplicates
+
 def number_times_sorted_array_rotated(l):
     s = 0
     e = len(l)-1
 
-    if l[s] < l[e]:
+    if l[s] <= l[e]:
         return 0
 
     while s <= e:
@@ -15,5 +17,5 @@ def number_times_sorted_array_rotated(l):
         else:
             e = m-1
 
-nums = [4,5,6,7,0,1,2,3]
+nums = [5,3]
 print(number_times_sorted_array_rotated(nums))      
