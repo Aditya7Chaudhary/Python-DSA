@@ -4,9 +4,13 @@ def koko_eating_bananas(piles,h):
     max_banana = max(piles)
     total_banana = sum(piles)
 
-    e = max(max_banana//a, total_banana//h)
+    e = max(max_banana//a, total_banana//h)+1
     s = min(max_banana//a, total_banana//h)
-    while s < e:
+    if s == 0:
+        s = 1
+    ans = max_banana
+
+    while s <= e:
         m = s + (e-s)//2
 
         time = 0
@@ -17,13 +21,14 @@ def koko_eating_bananas(piles,h):
             else:
                 time += time_i + 1
         
-        if time == h:
-            return m
-        elif time < h:
+        if time <= h:
+            ans = min(ans,m)
             e = m-1
         else:
             s = m+1
 
-piles = [3,6,7,11]
-h = 8
+    return ans
+
+piles = [312884470]
+h = 312884469
 print(koko_eating_bananas(piles,h))
