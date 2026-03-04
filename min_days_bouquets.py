@@ -28,5 +28,3 @@ bloomDay = [1,10,3,10,2]
 m = 3
 k = 1
 print(min_days_bouquets(bloomDay,k,m))
-
-            
