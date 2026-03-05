@@ -1,7 +1,9 @@
+from math import ceil
+
 def smallest_divisor_threshold_array(nums, limit):
-    s = min(nums)
+    s = 1
     e = max(nums)
-    ans = 0
+    ans = e
 
     while s <= e:
         m = s + (e-s)//2
@@ -9,17 +11,14 @@ def smallest_divisor_threshold_array(nums, limit):
         div_sum = 0
         underLimit = True
         for i in range(len(nums)):
-            if nums[i]%m == 0:
-                div_sum += nums[i]//m
-            else:
-                div_sum += nums[i]//m + 1
+            div_sum += ceil(nums[i]/m)
 
-            if div_sum >= limit:
+            if div_sum > limit:
                 underLimit = False
                 break
         
         if underLimit:
-            ans = m
+            ans = min(ans,m)
             e = m-1
         else:
             s = m+1
