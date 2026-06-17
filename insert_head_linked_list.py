@@ -4,8 +4,7 @@ class Node:
         self.next = next
 
 def insert_head_linked_list(head,num):
-    temp = head
-    head = Node(num,temp)
+    head = Node(num,head)
 
     return head
 
