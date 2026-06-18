@@ -17,12 +17,17 @@ def doublelinkedlist(l):
     return head
 
 def dellastnode(head):
+    if not head or not head.next:
+        return None
+    
     temp = head
     
     while temp:
         if not temp.next:
             temp.prev.next = None
         temp = temp.next
+        
+    return temp
 
 def printlinkedlist(head):
     temp = head
@@ -35,8 +40,8 @@ def printlinkedlist(head):
         temp = temp.next
     
 
-l = [3,2,8,9,1]
+l = [3]
 head = doublelinkedlist(l)
 printlinkedlist(head)
-dellastnode(head)
+head = dellastnode(head)
 printlinkedlist(head)
