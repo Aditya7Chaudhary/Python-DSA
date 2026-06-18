@@ -26,7 +26,7 @@ def printlinkedlist(head):
             print(f"({temp.data},{temp.next.data})")
         elif temp.next and temp.prev:
             print(f"({temp.prev.data},{temp.data},{temp.next.data})")
-        elif temp.prev and not temp.next:
+        else:
             print(f"({temp.prev.data},{temp.data})")
         temp = temp.next
         
