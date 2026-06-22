@@ -21,7 +21,8 @@ def removingduplicates(head):
         if temp.data == temp.prev.data:
             next = temp.next
             temp.prev.next = next
-            next.prev = temp.prev
+            if next:
+                next.prev = temp.prev
             temp.next = None
             temp.prev = None
             temp = next
@@ -37,7 +38,7 @@ def printlinkedlist(head):
         print(temp.data,end=" ")
         temp = temp.next
 
-l = [0,0,0,1,1,1,2,2,2,4,5]
+l = [0,1,1]
 head = linkedlist(l)
 printlinkedlist(head)
 print()
